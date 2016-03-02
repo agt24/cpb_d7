@@ -7,7 +7,7 @@ set -e -x
 # FreeSurfer is loaded and SUBJECTS_DIR is set
 # proj_conf.sh has been sourced
 
-if [[ -z "${1// }" ]] || [ ! -e $base/$1 ]; then 
+if [[ -z "${1// }" ]]; then 
     echo "Help. something is wrong"; exit 1;fi
 sub=$1
 dicomDir=$2

@@ -3,6 +3,7 @@ set -e -x
 
 croparg=" 21 22 6      307 288 44"
 hipstring="Hippocam"
+t2wbstring="wholebrainTE30FA10"
 
 # Assumptions:
 # Subject ID is passed on the command line
