@@ -24,4 +24,6 @@ strucFile=images_004_HIREST1MPRAGE07iso1001.nii.gz
 
 fsl_anat -i nii/$strucFile -o struc
 
+while [ ! -e $sd/$sub/struc.anat/T1_biascorr.nii.gz ];do sleep 60;done
+
 mri_convert $sd/$sub/struc.anat/T1_biascorr.nii.gz $sd/$sub/mri/orig/001.mgz

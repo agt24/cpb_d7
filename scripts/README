@@ -1,7 +1,10 @@
-Steps
+xSteps
+
+source proj_conf.sh
+
 For each subject
 
-- Run "freesurferPrep.sh subID dicomSource"
+- Run "freeSurferPrep.sh subID dicomSource"
    - Create subject dir and convert all scans from DICOM to nifti (d???/nii)
    - Does bias field correction with fsl_anat
    - Convert to freesurfer format 
@@ -18,3 +21,5 @@ For each subject
      - Apply identity transform to T1_biascorr with the hipp sf label as ref
 
 Once this is done for all subjects, we can run the ANTS buildTemplate script to warp the subjects together. Docs to be written.
+
+swarm -t 4 -g 6 -f recall5.swrm --partition nimh --sbatch --time=168:00:00
