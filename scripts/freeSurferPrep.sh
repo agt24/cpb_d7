@@ -22,7 +22,7 @@ load_dicom -i $dicomDir -o $base/$sub/ -s nii
 # b) Check if there is a different struc image we should be using. Each sub should probably have a JSON or YAML file with parameters like this
 strucFile=images_004_HIREST1MPRAGE07iso1001.nii.gz
 
-fsl_anat -i nii/$strucFile -o struc
+fsl_anat -i nii/$strucFile -o struc --nosubcortseg
 
 while [ ! -e $sd/$sub/struc.anat/T1_biascorr.nii.gz ];do sleep 60;done
 
