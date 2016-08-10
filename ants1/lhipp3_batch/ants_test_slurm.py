@@ -11,6 +11,10 @@ from nipype.pipeline.engine import Workflow, Node, MapNode
 from nipype.interfaces.io import SelectFiles, DataSink
 from nipype.interfaces.utility import IdentityInterface
 from nipype.interfaces.ants import Registration
+from nipype import config, logging
+
+config.enable_debug_mode()
+logging.update_logging(config)
 
 filepath = os.path.dirname( os.path.realpath( '__file__'))
 datadir = os.path.realpath(os.path.join(filepath, ''))
@@ -67,23 +71,23 @@ antsreg_rigid = Node(antsreg,name='test_antsreg_rigid')
 antsreg.cmdline
 
 
-# In[3]:
+# In[14]:
 
 # Apply Rigid Reg node 1
 
-from nipype.interfaces.ants import ApplyTransforms
-apply_rigid_reg = ApplyTransforms()
-apply_rigid_reg.inputs.dimension = 3
-apply_rigid_reg.inputs.input_image = 
-apply_rigid_reg.inputs.reference_image =
-apply_rigid_reg.inputs.output_image = 
-apply_rigid_reg.inputs.interpolation =
-apply_rigid_reg.inputs.default_value =
-apply_rigid_reg.inputs.transforms =
-apply_rigid_reg.inputs.invert_transform_flags = [False,False]
+#from nipype.interfaces.ants import ApplyTransforms
+#apply_rigid_reg = ApplyTransforms()
+#apply_rigid_reg.inputs.dimension = 3
+#apply_rigid_reg.inputs.input_image = 
+#apply_rigid_reg.inputs.reference_image =
+#apply_rigid_reg.inputs.output_image = 
+#apply_rigid_reg.inputs.interpolation =
+#apply_rigid_reg.inputs.default_value =
+#apply_rigid_reg.inputs.transforms =
+#apply_rigid_reg.inputs.invert_transform_flags = [False,False]
 
-apply_rigid = Node(apply_rigid_reg, name = 'apply_rigid')
-apply_rigid_reg.inputs.cmdline
+#apply_rigid = Node(apply_rigid_reg, name = 'apply_rigid')
+#apply_rigid_reg.inputs.cmdline
 
 
 # In[4]:
@@ -99,14 +103,15 @@ lhtemplate_files = opj(datadir,'lhtemplate[0, 1, 2].nii.gz')
 #t2_files = opj(datadir,'{subject_id}-t2s-bfc-mask.nii.gz')
 mi_files = opj(datadir,"{subject_id}-*.nii.gz")
 #mi_files.format(img_modality=('lab','t1-mask','t2s-bfc-mask'))
-rigid_reg_mat_files = opj('/spin1/users/zhoud4/ants_scripts/lh{subject_id}-30-pass1-0GenericAffine.mat')
+#rigid_reg_mat_files = opj('/spin1/users/zhoud4/ants_scripts/lh{subject_id}-30-pass1-0GenericAffine.mat')
 
 templates = {'lhtemplate': lhtemplate_files,
             'mi': mi_files,
-            'rigid_mat': rigid_reg_mat_files,}
+#            'rigid_mat': rigid_reg_mat_files,}
 #            'label':label_files,
 #            't1':t1_files,
-#            't2':t2_files,}
+#            't2':t2_files,
+            }
 selectfiles = Node(SelectFiles(templates, force_lists=['lhtemplate','mi'], 
                                sort_filelist = True, 
                                base_directory=datadir), 
@@ -131,9 +136,16 @@ workflow.connect([
 #                  [(antsreg_rigid, apply_rigid), 
 #                  ('rigid_mat','transforms'),('mi','input_image'),
 #                   ('lhtemplate','reference_image')]
-                (antsreg_rigid, datasink)
+#                (antsreg_rigid, datasink, [('warped_image', 'antsreg.@warped_image'),
+#                                           ('composite_transform','antsreg.@transform')])
                  ])
 
 workflow.write_graph()
 workflow.run(plugin='SLURM')
+#workflow.run()
+
+
+# In[ ]:
+
+
 
