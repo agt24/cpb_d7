@@ -23,8 +23,11 @@ Correlations between absolute volumes and symptom severity were analyzed in subf
 
 American Psychiatric Association, T.F.o.D.-I., 2000. Diagnostic and statistical manual of mental disorders
 DSM-IV-TR, 4th ed. American Psychiatric Association, Washington, DC, pp. xxxvii, 943 p.
+
 Andreasen, A., 1983. Scale for the assessment of negative symptoms. University of Iowa, Iowa City.
+
 Andreasen, A., 1984. Scale for the assessment of positive symptoms. University of Iowa, Iowa City.
+
 Avants, B.B., Epstein, C.L., Grossman, M., Gee, J.C., 2008. Symmetric diffeomorphic image registration with cross-correlation: evaluating automated labeling of elderly and neurodegenerative brain. Med Image Anal 12(1), 26-41.
 Avants, B.B., Yushkevich, P., Pluta, J., Minkoff, D., Korczykowski, M., Detre, J., Gee, J.C., 2010. The optimal template effect in hippocampus studies of diseased populations. Neuroimage 49(3), 2457-2466.
 Cox, R.W., 1996. AFNI: Software for analysis and visualization of functional magnetic resonance neuroimages. Comput Biomed Res 29(3), 162-173.
