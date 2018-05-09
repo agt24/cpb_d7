@@ -26,6 +26,8 @@ Exchangeability blocks were assigned to control for violation of assumptions of 
 ## Clinical and cognitive correlations
 Correlations between absolute volumes and symptom severity were analyzed in subfields that exhibited significant volume deficits. In patients, the relationships of absolute subfield volumes to short-term verbal episodic memory and intrusions were assessed using Spearman’s rank correlation coefficient rho. Holm-Bonferroni correction for family-wise error rate was carried out (alpha=0.05).
 
+# References
+
 American Psychiatric Association, T.F.o.D.-I., 2000. Diagnostic and statistical manual of mental disorders
 DSM-IV-TR, 4th ed. American Psychiatric Association, Washington, DC, pp. xxxvii, 943 p.
 
